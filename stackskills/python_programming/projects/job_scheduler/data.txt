@@ -1,0 +1,15 @@
+04:30,30,Price Loader
+03:00,15,Load Transactions
+01:30,60,Web Refresh
+00:00,10,Drew
+02:30,30,Transaction Preprocess
+08:30,90,Balance Sheet
+05:15,30,Schedule Distribution
+10:30,15,DB Maintenance
+15:00,20,Transaction Validator
+12:00,01,Drew2
+18:00,75,Batch Process
+19:15,15,Batch Report
+21:00,30,Nightly Refresh
+22:30,15,Batch Cleanup
+23:00,15,Test Insert

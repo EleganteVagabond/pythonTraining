@@ -1,0 +1,15 @@
+Data analysis steps
+
+1) get the data
+2) look at the data
+3) clean the data
+-determine what to do with missing values
+-determine what to do with outliers (visualize using sns.boxplot or [column name].hist)
+--x2=x[ (condition one) & (condition two)] where condition is like X.bedrooms < 6
+-check the data to make sure it comes in the right format (maybe it's just object and you want something else)
+4) look at correlations and plots to see what is important (df.corr().loc['rows','columns'] (either can be :)
+
+Groupby = df.groupby('any','cols','you','want').[some field].[statistic type]
+
+Look at heatmap to see which values seem to be the most predictive  = sns.heatmap(df.corr())
+
