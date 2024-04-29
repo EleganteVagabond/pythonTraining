@@ -1,0 +1,245 @@
+# Built in functions
+called as function with the object in it.
+ex: hash(some_value) NOT some_value.hash()
+
+### len()
+### hash()
+### id()
+### input()
+num_1 = input("give me an integer value")
+int(num_1)
+### print()
+exs thing = "one"; print("thing" + " " + thing); print("thing", thing); = thing one
+exs2 value=100; print("Value {}".format(value)); print(f"Value {value}"); = Value 100
+
+some_value.some_method returns a pointer to the method
+some_value.some_method() calls the method
+
+value = _ # assigns whatever the last value was
+### dir()
+gives you the methods available in the class (e.g. ruby .methods)
+### help
+Prints out the class hierarhcy
+### isinstance
+isinstance(some_object, some_class)
+
+# Built in types
+## Strings - immutable
+
+string = "this is a \"string\""
+string2 = 'this is also a \'string\''
+string3 = """
+this is also a string
+but can be
+on multiple lines
+"""
+print(string)
+print(string2)
+print(string3)
+print("-"*30) = ------------------------------
+
+string + string2
+id(string) != id(string2)
+
+### String methods
+capitalize()
+upper()
+lower()
+strip()
+find()
+split()
+join() ex "*".join(['some','list']) = some*list
+
+### Indexing
+Can be positive or negative
+string[0]
+string[len(string)-1] = string[-1]
+
+### Slicing
+string[start:end] # end is non inclusive
+string[start:] goes all the way to the end
+string[:end] goes from 0 to end-1
+string[:] == string
+string[start:end:step_size]
+nums="0123456789"
+nums[2:6:2] = "24
+nums[::2] = "2468"
+nums[::-1] = "9876543210" # this is reversed
+
+## imports
+import string; print(string.ascii_lowercase) # direct reference
+from string import ascii_lowercase; print(ascii_lowercase) # import specific pieces
+
+## Numbers
+
+division always results in a flot
+floor division (10//5) results in an int
+module (%)
+power (**) or import math; math.pow(10,5)
+import random; random.randint, random, randrange, etc...
++=
+
+## Type casting
+int("10") = 10
+string(almost_anything) = f"{almost_anything}"
+
+## Branching
+if condition:
+  do something
+elif other_condition:
+  do something_else
+else:
+  do a_third_thing
+
+### Ternary operator
+do somthing if condition else do something_else
+
+## While loop
+while v < 10:
+    print(v)
+    v += 1
+    if v == y:
+        break
+
+## Range
+range(min,max) # range from min to max-1
+list(range(max)) # converted to list to use
+for num in range(num): # creates an iterator from 0 to num-1
+    do_something
+
+## Sequences
+### Lists (array list)
+my_list = [1,2,False,4,"name",None,value,15.5]
+sorted(my_list) => doesn't modify list
+my_list.sort() => sorts in place
+value in my_list
+my_list.index(value_to_search)
+len(my_list)
+min(my_list) # must be of comparable types
+max(my_list) # must be of comparable types
+my_list.append(some_value) # add to end of list, no splatting
+my_list.insert(some_value,index) # add to list at given index
+my_list.extend(some_value) # splats the argument and appends all elements to end of list (does not deep splat)
+my_list.remove(item) # removes the named item
+my_list.pop(optional_index) # removes last object
+my_list.reverse() # reverses list in place, or my_list[::-1]
+my_list.count(value_to_count) # finds the number of occurences of value_to_count
+
+l1 = [randint(100) for num in range(100)] # creates a list of 100 random numbers
+l1 = [choice(ascii_lowercase) for num in range(100)] # creates a list of 100 random lower case characters
+
+for item in my_list:
+ print(item)
+
+for index, item in enumerate(my_list):
+  print(index, item)
+
+tupled_list = list(zip(l2,l1)) # creates a tupled list of the two lists of the form (l2[0],l1[0])
+
+passed by reference. To pass a copy use .copy() or [:]
+
+map(value.function, my_list)
+
+### Dictionaries (maps, keeps order)
+dict = {"key":"value", 1.0:5.0}
+dict["key"] => value
+dict.get("key") => value
+dict.keys()
+dict.values()
+dict.items() # key/value pairs as tuples
+
+for k,v in dict.items():
+  print(k, v)
+
+### Sets (ordering seems to be by type)
+my_set = {1,3,5,5,3,1} => {1,3,5}
+my_set = {1,2,False,4,"name",None,value,15.5}
+value in set # hash key access
+my_set.intersection # common
+my_set.union # all
+my_set.difference # uncommon
+
+### Tuples (immutable list)
+tuple = (1,2,False,4,"boo")
+v1, v2, v3, v4, v5 = tuple # splats into the variables, must match # of items in tuple
+tuple.count
+tuple.index
+
+## Functions
+def name_of_func(param_1, param_2):
+    print(param1, param2)
+    # returns None
+
+def return_func(p1)
+    return p1*2
+
+def my_func()
+    """This function does my stuff"""
+    
+def my_func_with_params(p1,p2)
+    """
+    This function does my stuff
+    Input: 2 params
+    Return: p1 ^ p2
+    """
+    return p1 ** p2
+
+can capture variable args use *args
+
+## Classes
+class MyClass:
+    pass
+
+__ => referred to as a dunder (double under) method
+
+def \__init__(self, first, last, other_var = None):
+    self.first_name = first
+    self.last_name = last
+
+def \__str__(self):
+    return f"{self.first_name} {self.last_name}"
+
+def \__repr__(self): # used for json?, if no \__str__ defined this method will be used
+    return f"MyClass({self.first_name},{self.last_name})"
+
+def \__eq__(self, other):
+    return self.first_name == other.first_name and self.last_name == other.last_name
+    # or
+    return self.first_name == other.first_name \
+    and self.last_name == other.last_name
+
+@staticmethod # creates this as a static Class method
+def some_method:
+    pass
+
+class ChildClass(MyClass):
+    def \__init__(self, first, last, other_var=None, child_val=None):
+        super().\__init__(first, last, other_var)
+        self.child_val = child_val
+
+## Files
+f = open(file_name)
+f_line = f.readline()
+f_contents = f.read()
+for line in f:
+    do_stuff
+f.close()
+
+# this version auto opens and closes
+with open(file_name) as f:
+    for line in f:
+        do_stuff
+
+# For writing
+with open(file_name, "w") as to_write: # "w" overwrites, "a" appends, "+" creates (e.g. "w+")
+    to_write.write("thing to add\n")
+
+# Trees
+## in-order left root right
+## pre-order root left right
+-used to get the values that created the tree in the original order (this is inaccurate but I'm not sure why)
+-used to copy the tree
+-visit all the roots before the leaves
+## post order left right root
+-used for deletion because it visits all leaves first (envision burning a tree...the leaves go first)
+-explore all leaves first
